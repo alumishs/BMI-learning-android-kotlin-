@@ -1,10 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <com.google.android.material.card.MaterialCardView
+        android:id="@+id/itemCard"
         android:layout_width="match_parent"
         android:layout_height="@dimen/_100sdp"
         app:cardBackgroundColor="@color/bottom_navigation_bg"
@@ -13,15 +15,42 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintVertical_bias="0.05"
-        android:layout_marginTop="@dimen/_5sdp"
+        android:layout_marginTop="@dimen/_150sdp"
         >
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="@dimen/_60sdp"
+            android:layout_height="wrap_content"
+            app:layout_constraintHorizontal_bias="0.05"
+            app:layout_constraintVertical_bias="0.05"
+            android:layout_marginStart="@dimen/_10sdp"
+            android:layout_marginTop="@dimen/_10sdp"
+            >
+            <ImageView
+                android:layout_width="@dimen/_20sdp"
+                android:layout_height="@dimen/_20sdp"
+                android:contentDescription="@string/history_icon"
+                android:src="@drawable/history"
+                app:tint="@color/common_color"
+                android:layout_marginStart="@dimen/_5sdp"
+                android:layout_gravity="center_vertical"
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/_10_min"
+                android:gravity="center"
+                android:layout_marginStart="@dimen/_20sdp"
+                />
+        </com.google.android.material.card.MaterialCardView>
         <TextView
             android:id="@+id/mainHeading"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/this_is_main_heading"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="@string/we_are_working_on_main_heading"
+            android:gravity="center"
             android:textColor="@color/white"
-            android:layout_margin="10dp"
             />
+
+
     </com.google.android.material.card.MaterialCardView>
 </androidx.constraintlayout.widget.ConstraintLayout>
