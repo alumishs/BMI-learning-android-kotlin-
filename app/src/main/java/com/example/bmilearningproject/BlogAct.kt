@@ -1,7 +1,10 @@
 package com.example.bmilearningproject
 
+import android.annotation.SuppressLint
+import android.graphics.Color
 import android.os.Bundle
 import android.widget.LinearLayout
+import android.widget.TextView
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
@@ -11,11 +14,12 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.bmilearningproject.adapter.BlogGridAdapter
 import com.example.bmilearningproject.adapter.BlogTopAdapter
+import com.example.bmilearningproject.callback.BlogTopMenuListener
 import com.example.bmilearningproject.databinding.ActivityBlogBinding
 import com.example.bmilearningproject.model.BlogGridModel
 import com.example.bmilearningproject.model.BlogTopModel
 
-class BlogAct : AppCompatActivity() {
+class BlogAct : AppCompatActivity(), BlogTopMenuListener {
 
     val TAG = "BlogAct"
     private  lateinit var blogGridAdapter : BlogGridAdapter
@@ -50,8 +54,8 @@ class BlogAct : AppCompatActivity() {
 
             topBlogRV.layoutManager = LinearLayoutManager(this@BlogAct, LinearLayoutManager.HORIZONTAL, false)
 //            topBlogRV.layoutManager = GridLayoutManager(this@BlogAct, 3)
-            blogTopAdapter = BlogTopAdapter(menuList)
-            topBlogRV.adapter = BlogTopAdapter(menuList)
+            blogTopAdapter = BlogTopAdapter(menuList,this@BlogAct)
+            topBlogRV.adapter = BlogTopAdapter(menuList,this@BlogAct)
 
 
 //            blogTopAdapter  = BlogTopAdapter(menuList)
@@ -70,5 +74,14 @@ class BlogAct : AppCompatActivity() {
 
 
         }
+    }
+
+
+    override fun onMenuClick(model: BlogTopModel, text: TextView) {
+//      val blogItemTxt = findViewById<TextView>(R.id.blogItemText)
+//        blogItemTxt.setBackgroundResource(R.color.common_color)
+       text.setBackgroundColor(Color.BLACK)
+        text.setTextColor(Color.WHITE)
+
     }
 }

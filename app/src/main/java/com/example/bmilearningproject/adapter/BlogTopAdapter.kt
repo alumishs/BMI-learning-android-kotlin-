@@ -1,5 +1,6 @@
 package com.example.bmilearningproject.adapter
 
+import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -7,9 +8,10 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.bmilearningproject.R
+import com.example.bmilearningproject.callback.BlogTopMenuListener
 import com.example.bmilearningproject.model.BlogTopModel
 
-class BlogTopAdapter(val list: ArrayList<BlogTopModel>) : RecyclerView.Adapter<BlogTopAdapter.BlogTopHolder>()  {
+class BlogTopAdapter(val list: ArrayList<BlogTopModel>,var listener: BlogTopMenuListener) : RecyclerView.Adapter<BlogTopAdapter.BlogTopHolder>()  {
     override fun onCreateViewHolder(
         parent: ViewGroup,
         viewType: Int
@@ -18,12 +20,18 @@ class BlogTopAdapter(val list: ArrayList<BlogTopModel>) : RecyclerView.Adapter<B
        return BlogTopHolder(view)
     }
 
+    @SuppressLint("ResourceAsColor")
     override fun onBindViewHolder(
         holder: BlogTopHolder,
         position: Int
     ) {
        holder.image.setImageResource(list[position].image)
         holder.name.text = list[position].tile
+
+        holder.image.setOnClickListener {
+//            holder.name.setBackgroundColor(R.color.bottom_navigation_bg)
+            listener.onMenuClick(list[position],holder.name)
+        }
     }
 
     override fun getItemCount(): Int {
