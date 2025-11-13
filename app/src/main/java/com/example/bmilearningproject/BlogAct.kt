@@ -20,7 +20,6 @@ import com.example.bmilearningproject.model.BlogGridModel
 import com.example.bmilearningproject.model.BlogTopModel
 
 class BlogAct : AppCompatActivity(), BlogTopMenuListener {
-
     val TAG = "BlogAct"
     private  lateinit var blogGridAdapter : BlogGridAdapter
     private  lateinit var blogGridList : ArrayList<BlogGridModel>
@@ -37,21 +36,13 @@ class BlogAct : AppCompatActivity(), BlogTopMenuListener {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
-
-
-
         binding.apply {
             backIc.setOnClickListener {
                 finish()
             }
-
             menuList = ArrayList<BlogTopModel>()
-            menuList.add(BlogTopModel(R.drawable.bmi_logo,  "BMI Blog Act"))
-            menuList.add(BlogTopModel(R.drawable.admin_panel_settings_ic,  "BMI Blog Act"))
-            menuList.add(BlogTopModel(R.drawable.bmi_without_bg_ic,  "BMI Blog Act"))
-            menuList.add(BlogTopModel(R.drawable.bmi_logo,  "BMI Blog Act"))
-            menuList.add(BlogTopModel(R.drawable.bmi_logo,  "BMI Blog Act"))
-
+            menuList.add(BlogTopModel(R.drawable.bmi_logo,  "BMI"))
+            menuList.add(BlogTopModel(R.drawable.admin_panel_settings_ic,  "BMR"))
             topBlogRV.layoutManager = LinearLayoutManager(this@BlogAct, LinearLayoutManager.HORIZONTAL, false)
 //            topBlogRV.layoutManager = GridLayoutManager(this@BlogAct, 3)
             blogTopAdapter = BlogTopAdapter(menuList,this@BlogAct)
@@ -61,21 +52,15 @@ class BlogAct : AppCompatActivity(), BlogTopMenuListener {
 //            blogTopAdapter  = BlogTopAdapter(menuList)
 //            topBlogRV.layoutManager = LinearLayoutManager(this@BlogAct, LinearLayoutManager.HORIZONTAL, false)
 //            topBlogRV.adapter = blogTopAdapter
-
-
             blogGridList = ArrayList<BlogGridModel>()
-
             blogGridList.add(BlogGridModel("This is main heading from blogAct"))
             blogGridList.add(BlogGridModel("This is main heading 2"))
             blogGridList.add(BlogGridModel("This is main heading 3"))
             blogGridRV.layoutManager = LinearLayoutManager(this@BlogAct, LinearLayoutManager.VERTICAL, false)
             blogGridAdapter = BlogGridAdapter(blogGridList)
             blogGridRV.adapter = BlogGridAdapter(blogGridList)
-
-
         }
     }
-
 
     override fun onMenuClick(model: BlogTopModel, text: TextView) {
 //      val blogItemTxt = findViewById<TextView>(R.id.blogItemText)

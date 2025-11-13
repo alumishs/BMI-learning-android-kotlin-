@@ -40,4 +40,8 @@
     <string name="history_icon">history icon</string>
     <string name="_10_min">10 min</string>
     <string name="we_are_working_on_main_heading">We are working on main heading</string>
+    <string name="see_more">see more</string>
+    <string name="_4_min">4 min</string>
+    <string name="we_are_working_on_designing_layout">We are working on designing layout</string>
+    <string name="see_more_icon">see more icon</string>
 </resources>
