@@ -2,7 +2,9 @@ package com.example.bmilearningproject
 
 import android.annotation.SuppressLint
 import android.graphics.Color
+import android.graphics.drawable.Drawable
 import android.os.Bundle
+import android.view.View
 import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.activity.enableEdgeToEdge
@@ -26,6 +28,7 @@ class BlogAct : AppCompatActivity(), BlogTopMenuListener {
     private lateinit var blogTopAdapter : BlogTopAdapter
     private lateinit var menuList : ArrayList<BlogTopModel>
     private lateinit var binding: ActivityBlogBinding
+    @SuppressLint("ResourceType")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
@@ -53,9 +56,12 @@ class BlogAct : AppCompatActivity(), BlogTopMenuListener {
 //            topBlogRV.layoutManager = LinearLayoutManager(this@BlogAct, LinearLayoutManager.HORIZONTAL, false)
 //            topBlogRV.adapter = blogTopAdapter
             blogGridList = ArrayList<BlogGridModel>()
-            blogGridList.add(BlogGridModel("This is main heading from blogAct"))
-            blogGridList.add(BlogGridModel("This is main heading 2"))
-            blogGridList.add(BlogGridModel("This is main heading 3"))
+            blogGridList.add(BlogGridModel("This is main heading from blogAct lkjdklfjsd jklsdjf lkasdjfl",R.drawable.bmi_logo))
+            blogGridList.add(BlogGridModel("This is main heading 1",R.drawable.bmi_without_bg_ic))
+//            blogGridList.add(BlogGridModel("This is main heading 2",findViewById(R.drawable.bmi_logo)))
+//            blogGridList.add(BlogGridModel("This is main heading 3",findViewById(R.drawable.bmi_logo)))
+//            blogGridList.add(BlogGridModel("This is main heading 4",findViewById(R.drawable.bmi_logo)))
+//            blogGridList.add(BlogGridModel("This is main heading 5",findViewById(R.drawable.bmi_logo)))
             blogGridRV.layoutManager = LinearLayoutManager(this@BlogAct, LinearLayoutManager.VERTICAL, false)
             blogGridAdapter = BlogGridAdapter(blogGridList)
             blogGridRV.adapter = BlogGridAdapter(blogGridList)

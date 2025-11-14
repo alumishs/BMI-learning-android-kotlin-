@@ -1,3 +1,5 @@
 package com.example.bmilearningproject.model
 
-data class BlogGridModel(var mainHeading: String, )
+import android.view.View
+
+data class BlogGridModel(var mainHeading: String, var image: Int )
